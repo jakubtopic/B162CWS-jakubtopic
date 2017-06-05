@@ -20,6 +20,11 @@ module tubeProfile(shape, diameter, wall_thick, filling = false) {
             object(shape, diameter);
         }
 
+    /**
+     * Shape generator submodule
+     * @param  {[type]} shape    Pipe shape
+     * @param  {[type]} diameter Pipe diameter
+     */
     module object(shape, diameter) {
         rotate(-90) // Y axis is no facing to bottom side
 
