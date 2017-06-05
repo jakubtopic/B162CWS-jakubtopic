@@ -48,7 +48,7 @@ module tubeProfile(shape, diameter, wall_thick, filling = false) {
 
 /**
  * Customized linear_extrude wrapper
- * @param  {[type}  shape    Pipe shape
+ * @param  {[type}  shape     Pipe shape
  * @param  {[type]}  length   Pipe length
  * @param  {[type]}  diameter Pipe diameter
  * @param  {[type]}  angle    The angle between the pipe and the plane
