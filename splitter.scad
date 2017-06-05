@@ -93,28 +93,32 @@ module splitter(pipes=[[]], wall_thick=2.5) {
      */
     difference() {
         // Iterate through all pipes (any amount) and render each one
-
-        for (i = [0 : len(pipes)-1]) {
-            pipe = pipes[i];
-            rotate([pipe[3] - 90, 0, (360/len(pipes)) * i]) {
-                // Render the pipe itself
-                extrude(pipe[0], pipe[1], pipe[2], pipe[3])
-                    tubeProfile(pipe[0], pipe[2], wall_thick);
-
-                // Render a top cover of the pipe
-                rotate([0,180,0])
-                    extrude(pipe[0], wall_thick, pipe[2], pipe[3], true)
-                        tubeProfile(pipe[0], pipe[2], wall_thick, true);
-            }
-        }
+        iterator(pipes, wall_thick);
 
         // Remove center of the pipe. It's kinda duplicate but it's the best
         // solution that actually was working.
+        iterator(pipes, wall_thick, false);
+    }
+
+    module iterator(pipes, wall_thick, type = true) {
         for (i = [0 : len(pipes)-1]) {
             pipe = pipes[i];
-            rotate([pipe[3] - 90, 0,(360/len(pipes)) * i])
-                extrude(pipe[0], pipe[1], pipe[2], pipe[3])
-                    tubeProfile(pipe[0], pipe[2], 0, true);
+            if(type) {
+                rotate([pipe[3] - 90, 0, (360/len(pipes)) * i]) {
+                    // Render the pipe itself
+                    extrude(pipe[0], pipe[1], pipe[2], pipe[3])
+                        tubeProfile(pipe[0], pipe[2], wall_thick);
+
+                    // Render a top cover of the pipe
+                    rotate([0,180,0])
+                        extrude(pipe[0], wall_thick, pipe[2], pipe[3], true)
+                            tubeProfile(pipe[0], pipe[2], wall_thick, true);
+                }
+            } else {
+                rotate([pipe[3] - 90, 0,(360/len(pipes)) * i])
+                    extrude(pipe[0], pipe[1], pipe[2], pipe[3])
+                        tubeProfile(pipe[0], pipe[2], 0, true);
+            }
         }
     }
 }
