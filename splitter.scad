@@ -65,7 +65,7 @@ module extrude(shape, length, diameter, angle, cover = false) {
     if(angle != 0) {
         // calculate overlap depending on pipe shape and diameter
         overlap =
-            (shape == "Star" ? (angle > 0 ? diameter / 3 : (2 * diameter) / 3) :
+            (shape == "Star" ? (angle > 0 ? poly1(diameter) : poly0(diameter)) :
              shape == "Circle" ? diameter / 2 :
              shape == "Pentagon" ? (angle > 0 ? pentagonRadius(diameter) :
                 pentagonRadius(diameter) * cos(36)) :

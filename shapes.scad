@@ -7,7 +7,7 @@ use <functions.scad>
 module star(diameter) {
     // length[0] - distance of vertice
     // length[1] - distance of intersecting edge
-    length = [(2 * diameter) / 3, diameter / 3];
+    length = [poly0(diameter), poly1(diameter)];
 
     // Generating points for polygon
     points = [
