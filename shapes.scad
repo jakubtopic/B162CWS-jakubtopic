@@ -9,7 +9,7 @@ module star(diameter) {
     // length[1] - distance of intersecting edge
     length = [(2 * diameter) / 3, diameter / 3];
 
-    // Generating points for polygn
+    // Generating points for polygon
     points = [
         for (angle = [0 : 36 : 360])
             [length[(angle/36) % 2] * cos(angle),
