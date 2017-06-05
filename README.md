@@ -18,4 +18,4 @@ Splitter
 ```
 
 ### Předzpracování
-Původně jsem měl v úmyslu vyhnout se podpůrným strukturám, ale přes veškerou snahu se mi nepodařilo rozřezat objekt na rozumný počet částí, které by byly rozumně tisknutelné. Buď části stále vyžadovaly podpory, nebo jich bylo příliš mnoho. Nakonec jsem se tedy uchýlil k vygenerování podpory v Meshmixeru.
+Původně jsem měl v úmyslu vyhnout se podpůrným strukturám, ale přes veškerou snahu se mi nepodařilo rozřezat objekt na rozumný počet částí, které by byly rozumně tisknutelné. Buď části stále vyžadovaly podpory, nebo bylo částí příliš mnoho. Nakonec jsem se tedy uchýlil k vygenerování podpory v Meshmixeru.
